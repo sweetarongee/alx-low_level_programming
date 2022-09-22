@@ -44,4 +44,4 @@ void puts2(char *str)
 
 Footer
 
-© 2022 G
+© 2022
