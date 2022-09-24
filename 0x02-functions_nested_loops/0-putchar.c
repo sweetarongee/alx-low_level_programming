@@ -44,6 +44,3 @@ int main(void)
 
 
 
-Footer
-
-
