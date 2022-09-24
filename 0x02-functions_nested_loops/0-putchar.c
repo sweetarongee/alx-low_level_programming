@@ -12,7 +12,6 @@
  *
  *    * This program uses a user-defined function to print
  *
- *     *
  *
  *      * Return: 0
  *
