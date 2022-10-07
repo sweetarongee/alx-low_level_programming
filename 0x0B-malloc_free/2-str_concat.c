@@ -1,113 +1,39 @@
-nclude <stdlib.h>
-
-
+#include "main.h"
+#include <stdlib.h>
 
 /**
+ * str_concat - Concatenates two strings.
+ * @s1: The string to be concatenated upon.
+ * @s2: The string to be concatenated to s1.
  *
- *  * str_concat - concats two strings
- *
- *   * @s1: first string
- *
- *    * @s2: second string
- *
- *     *
- *
- *      * Return: pointer to a newly allocated space memory that holds s1 & s2 concat
- *
- *       */
-
+ * Return: If concatenation fails - NULL.
+ *         Otherwise - a pointer the newly-allocated space in memory
+ *                     containing the concatenated strings.
+ */
 char *str_concat(char *s1, char *s2)
-
 {
+	char *concat_str;
+	int index, concat_index = 0, len = 0;
 
-		int i = 0;
+	if (s1 == NULL)
+		s1 = "";
 
-			int j = 0;
+	if (s2 == NULL)
+		s2 = "";
 
-				int l1 = 0;
+	for (index = 0; s1[index] || s2[index]; index++)
+		len++;
 
-					int l2 = 0;
+	concat_str = malloc(sizeof(char) * len);
 
-						char *s1_s2;
+	if (concat_str == NULL)
+		return (NULL);
 
+	for (index = 0; s1[index]; index++)
+		concat_str[concat_index++] = s1[index];
 
+	for (index = 0; s2[index]; index++)
+		concat_str[concat_index++] = s2[index];
 
-							if (s1 == NULL)
-
-									{
-
-												s1 = "";
-
-													}
-
-								else
-
-										{
-
-													while (*(s1 + l1))
-
-																	l1++;
-
-														}
-
-									if (s2 == NULL)
-
-											{
-
-														s2 = "";
-
-															}
-
-										else
-
-												{
-
-															while (*(s2 + l2))
-
-																			l2++;
-
-																}
-
-											s1_s2 = malloc(sizeof(char) * (l1 + l2) + 1);
-
-												while (i < l1 + l2)
-
-														{
-
-																	if (s1_s2 == NULL)
-
-																					return (NULL);
-
-																			if (s1[i] != '\0')
-
-																						{
-
-																										s1_s2[i] = s1[i];
-
-																													i++;
-
-																															}
-
-																					else
-
-																								{
-
-																												while (j < l2)
-
-																																{
-
-																																					s1_s2[i] = s2[j];
-
-																																									i++;
-
-																																													j++;
-
-																																																}
-
-																														}
-
-																						}
-
-													return (s1_s2);
-
+	return (concat_str);
 }
