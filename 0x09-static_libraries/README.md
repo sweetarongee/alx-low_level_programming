@@ -1,1 +1,1 @@
-read me for static libraries
+slearning static libraries
